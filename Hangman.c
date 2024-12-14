@@ -28,7 +28,7 @@ void match();                  // responsible for match
 int main(void)
 {
 AGAIN:                                                                                                                                                                                                                                                                        // goto label to call on wrong choices
-    system("cls");                                                                                                                                                                                                                                                            // screen cleaner
+    system("clear");                                                                                                                                                                                                                                                            // screen cleaner
     printf("\t\t\tHANGMAN GAME\n");                                                                                                                                                                                                                                           // Display (Using multiple TABs (\t) to center the it on the screen )
     printf("SUMMARY: Hangman is a guessing game for two Players.\nOne player thinks of a word and other tries to guess it by adding letters within a\ncertain number of chances + a bonus chance. If word found\nwithout losing all chances you WON Else word typer WON.\n"); // Display
     printf("--------------------------------------------------\n\n");                                                                                                                                                                                                           // Display
@@ -40,7 +40,7 @@ AGAIN:                                                                          
     switch (choice)
     {
     case '1':
-        system("cls"); // screen cleaner
+        system("clear"); // screen cleaner
 
         // Get team to play
         bool who_write_word = get_players_name(); // get_players_name function callback
@@ -56,12 +56,12 @@ AGAIN:                                                                          
         }
 
         // get Word
-        system("cls");        // screen cleaner
+        system("clear");        // screen cleaner
         printf("\t\tWORD\n"); // Display
         printf("%s type your word: ", Word_asker);
         scanf("%s", word);          // Word assign to Global word
         chances = strlen(word) + 1; // lenght of word assign to Global chances
-        system("cls");              // screen cleaner
+        system("clear");              // screen cleaner
         match();                    // match callback
         break;
 
@@ -73,7 +73,7 @@ AGAIN:                                                                          
         break;
 
     default:
-        system("cls"); // screen cleaner
+        system("clear"); // screen cleaner
         goto AGAIN;    // label callback
         break;
     }
@@ -85,7 +85,7 @@ void match()
     int len = strlen(word); // lenght of word ( FOR LOOP )
     while (chances != 0)    // time match played
     {
-        system("cls");                           // screen cleaner
+        system("clear");                           // screen cleaner
         printf("\t\tMATCH\n");                   // Display
         printf("Chances: %i", chances);          // Chances: x
         printf("\t\t");                          // TAB TAB
@@ -122,7 +122,7 @@ void match()
         if (winner()) // if true
         {
 
-            system("cls");                                                          // screen cleaner
+            system("clear");                                                          // screen cleaner
             printf("\t\tMATCH FINISHED\n");                                         // Display
             printf("Congratulation!, %s\nYou WON the Match.....!\n", Letter_typer); // Display
             printf("Word you WON aginst: %s\n\n", word);                            // Display
@@ -131,7 +131,7 @@ void match()
         }
         else if (chances == 0) // if lost chances
         {
-            system("cls");                                                        // screen cleaner
+            system("clear");                                                        // screen cleaner
             printf("\t\tMATCH FINISHED\n");                                       // Display
             printf("Congratulation!, %s\nYou WON the Match.....!\n", Word_asker); // Display
             printf("Word you WON aginst: %s\n\n", word);                          // Display
@@ -206,7 +206,7 @@ bool get_players_name()
     printf("Player2 name: "); // Player2 name:
     scanf("%s", Player2_name);
 
-    system("cls"); // screen cleaner
+    system("clear"); // screen cleaner
 
     // ask who want to write the word
 AGAIN:
@@ -224,14 +224,14 @@ AGAIN:
         return false;
         break;
     default:
-        system("cls"); // screen cleaner
+        system("clear"); // screen cleaner
         goto AGAIN;
         break;
     }
 }
 
 // History creator
-void History(char winner[20])
+void History(char winncer[20])
 {
     FILE *file;                            // file pointer
     file = fopen("History.dat", "a");      // open in append mode
